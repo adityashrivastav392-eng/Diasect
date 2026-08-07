@@ -816,7 +816,7 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      if (MAKE_WEBHOOK_URL === "https://hook.eu1.make.com/ys7mp85dc3hup7kt67a57u3u7dal7xjx" || !MAKE_WEBHOOK_URL) {
+      if (MAKE_WEBHOOK_URL === "MAKE_WEBHOOK_URL" || !MAKE_WEBHOOK_URL) {
         statusMsg.style.display = 'block';
         statusMsg.className = 'error';
         statusMsg.innerText = '⚠️ Please paste your Make.com Webhook URL in the JavaScript code first!';
@@ -836,7 +836,7 @@
       };
 
       try {
-        const response = await fetch(https://hook.eu1.make.com/ys7mp85dc3hup7kt67a57u3u7dal7xjx, {
+        const response = await fetch(https://MAKE_WEBHOOK_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
