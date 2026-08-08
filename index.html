@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>वेब डेवलपर - आधुनिक समाधान</title>
+  <title>Cyberpunk Web Developer Portfolio</title>
   <style>
     :root {
-      --bg-color: #0a0c0b;
-      --card-bg: #141816;
+      --bg-color: #050807;
+      --card-bg: rgba(18, 24, 21, 0.7);
       --primary-green: #00ff66;
+      --green-glow: rgba(0, 255, 102, 0.4);
       --muted-green: #00b347;
-      --text-main: #f0f5f2;
-      --text-muted: #9aa8a0;
-      --border-color: #222d27;
-      --disabled-text: #506157;
+      --text-main: #e6f5ec;
+      --text-muted: #83968b;
+      --border-color: #1a2e23;
+      --disabled-text: #415248;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -28,16 +29,17 @@
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Header & Navigation */
+    /* Navbar */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 8%;
-      background: rgba(10, 12, 11, 0.9);
-      backdrop-filter: blur(10px);
+      padding: 1.2rem 8%;
+      background: rgba(5, 8, 7, 0.85);
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -46,9 +48,11 @@
 
     .logo {
       font-size: 1.5rem;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--primary-green);
       text-decoration: none;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px var(--green-glow);
     }
 
     .nav-links {
@@ -60,74 +64,126 @@
     .nav-links a {
       color: var(--text-main);
       text-decoration: none;
-      transition: color 0.3s;
+      font-weight: 500;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
     .nav-links a:hover {
       color: var(--primary-green);
+      text-shadow: 0 0 8px var(--green-glow);
     }
 
-    /* Hero Section */
+    /* Cyberpunk Hero Section */
     .hero {
-      min-height: 85vh;
+      position: relative;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 0 5%;
-      background: radial-gradient(circle at center, rgba(0, 255, 102, 0.05) 0%, transparent 70%);
+      background: #000;
+      overflow: hidden;
+    }
+
+    /* Cyberpunk Perspective Grid Background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: 
+        linear-gradient(to right, rgba(0, 255, 102, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 102, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      transform: perspective(500px) rotateX(60deg);
+      animation: grid-move 20s linear infinite;
+      z-index: 1;
+    }
+
+    /* Cyberpunk Ambient Lighting Overlays */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.12), transparent 70%),
+        linear-gradient(to bottom, rgba(5, 8, 7, 0) 60%, var(--bg-color) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes grid-move {
+      0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+      100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
+      font-weight: 800;
       margin-bottom: 1.5rem;
-      max-width: 900px;
+      letter-spacing: -1px;
+      line-height: 1.2;
     }
 
     .hero h1 span {
       color: var(--primary-green);
+      text-shadow: 0 0 20px var(--green-glow);
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--text-muted);
       max-width: 650px;
-      margin-bottom: 2rem;
+      margin: 0 auto 2.5rem;
     }
 
     .cta-btn {
+      display: inline-block;
       background-color: var(--primary-green);
       color: #000;
-      padding: 0.9rem 2.2rem;
-      font-weight: bold;
-      border-radius: 30px;
+      padding: 1rem 2.5rem;
+      font-weight: 700;
+      border-radius: 4px;
       text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px var(--green-glow);
+      transition: all 0.3s ease;
     }
 
     .cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 255, 102, 0.3);
+      box-shadow: 0 0 30px var(--primary-green);
     }
 
-    /* Section Styling */
+    /* Common Section Styles */
     section {
-      padding: 5rem 8%;
+      padding: 6rem 8%;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 3rem;
-      color: #fff;
+      font-size: 2.4rem;
+      margin-bottom: 3.5rem;
+      letter-spacing: 1px;
     }
 
     .section-title span {
       color: var(--primary-green);
+      text-shadow: 0 0 10px var(--green-glow);
     }
 
-    /* Why Choose Us Section */
+    /* Why Choose Us Grid */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -137,13 +193,16 @@
     .feature-box {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      padding: 2.5rem 1.8rem;
-      border-radius: 12px;
-      transition: border-color 0.3s;
+      padding: 2.5rem 2rem;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
     }
 
     .feature-box:hover {
       border-color: var(--primary-green);
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
+      transform: translateY(-5px);
     }
 
     .feature-box h3 {
@@ -167,40 +226,44 @@
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 2rem;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s, border-color 0.3s;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
       position: relative;
     }
 
     .card:hover {
       transform: translateY(-5px);
       border-color: var(--primary-green);
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.15);
     }
 
     .card.featured {
       border-color: var(--primary-green);
-      box-shadow: 0 0 20px rgba(0, 255, 102, 0.1);
+      box-shadow: 0 0 20px var(--green-glow);
     }
 
     .card.featured::before {
-      content: 'BEST VALUE';
+      content: 'POPULAR';
       position: absolute;
       top: -12px;
       right: 20px;
       background-color: var(--primary-green);
       color: #000;
-      font-weight: bold;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 4px;
+      font-weight: 800;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: 1px;
     }
 
     .plan-title {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
+      text-transform: capitalize;
     }
 
     .features-list {
@@ -212,29 +275,30 @@
     .features-list li {
       margin-bottom: 0.8rem;
       font-size: 0.95rem;
+      display: flex;
+      align-items: center;
     }
 
-    .check { color: var(--primary-green); margin-right: 8px; }
-    .cross { color: var(--disabled-text); margin-right: 8px; }
+    .check { color: var(--primary-green); margin-right: 10px; font-weight: bold; }
+    .cross { color: var(--disabled-text); margin-right: 10px; font-weight: bold; }
     .disabled-feature { color: var(--disabled-text); text-decoration: line-through; }
 
     .plan-btn {
       background-color: transparent;
       color: var(--primary-green);
-      border: 2px solid var(--primary-green);
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
+      border: 1px solid var(--primary-green);
+      padding: 0.8rem;
+      border-radius: 4px;
+      font-weight: 700;
       text-align: center;
       text-decoration: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .plan-btn:hover, .card.featured .plan-btn {
       background-color: var(--primary-green);
       color: #000;
+      box-shadow: 0 0 15px var(--green-glow);
     }
 
     /* Appointment Section */
@@ -242,37 +306,41 @@
       max-width: 650px;
       margin: 0 auto;
       background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      border-radius: 8px;
       border: 1px solid var(--border-color);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     }
 
     .form-group {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .form-group label {
       display: block;
       margin-bottom: 0.5rem;
-      color: var(--text-main);
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
     }
 
     .form-group input, 
     .form-group select, 
     .form-group textarea {
       width: 100%;
-      padding: 0.8rem;
-      background: #0a0c0b;
+      padding: 0.9rem;
+      background: #090d0b;
       border: 1px solid var(--border-color);
-      border-radius: 6px;
+      border-radius: 4px;
       color: var(--text-main);
       outline: none;
+      transition: border-color 0.3s;
     }
 
     .form-group input:focus, 
     .form-group select:focus, 
     .form-group textarea:focus {
       border-color: var(--primary-green);
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
     }
 
     .submit-btn {
@@ -281,74 +349,80 @@
       color: #000;
       padding: 1rem;
       border: none;
-      border-radius: 6px;
-      font-weight: bold;
+      border-radius: 4px;
+      font-weight: 800;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px var(--green-glow);
     }
 
     .submit-btn:hover {
-      background: var(--muted-green);
+      background: #00e65c;
+      box-shadow: 0 0 25px var(--primary-green);
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 2.5rem 0;
-      background: #050605;
+      background: #020403;
       border-top: 1px solid var(--border-color);
       color: var(--text-muted);
       font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2.4rem; }
       .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navigation -->
   <header>
-    <a href="#" class="logo">&lt;DevStudio/&gt;</a>
+    <a href="#" class="logo">&lt;DEV.STUDIO/&gt;</a>
     <ul class="nav-links">
-      <li><a href="#why-us">विशेषताएं</a></li>
-      <li><a href="#pricing">प्लान्स</a></li>
-      <li><a href="#appointment">बुक करें</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#appointment">Book Appointment</a></li>
     </ul>
   </header>
 
-  <!-- Hero Page -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>आपके बिज़नेस को दें <span>आधुनिक और तेज़</span> डिजिटल पहचान</h1>
-    <p>हम बनाते हैं बेहतरीन डिज़ाइन और उच्च प्रदर्शन वाली वेबसाइट्स जो आपके ब्रांड को सही ऊंचाइयों तक पहुँचाती हैं।</p>
-    <a href="#appointment" class="cta-btn">अपॉइंटमेंट बुक करें</a>
+    <div class="hero-content">
+      <h1>BUILDING NEXT-GEN <span>DIGITAL EXPERIENCES</span></h1>
+      <p>High-performance websites engineered for growth, precision, and modern web presence.</p>
+      <a href="#appointment" class="cta-btn">Book an Appointment</a>
+    </div>
   </section>
 
   <!-- Why Choose Us -->
   <section id="why-us">
-    <h2 class="section-title">हमें ही <span>क्यों चुनें?</span></h2>
+    <h2 class="section-title">WHY <span>CHOOSE US</span></h2>
     <div class="features-grid">
       <div class="feature-box">
-        <h3>⚡ आधुनिक और तेज़ स्पीड</h3>
-        <p>हम अत्यधिक ऑप्टिमाइज़्ड कोड का उपयोग करते हैं जिससे आपकी वेबसाइट बिना किसी देरी के तुरंत लोड होती है।</p>
+        <h3>⚡ Cyber-Fast Performance</h3>
+        <p>Clean, lightweight code ensuring blazing fast loading speeds and exceptional performance core metrics.</p>
       </div>
       <div class="feature-box">
-        <h3>📱 100% रिस्पॉन्सिव डिज़ाइन</h3>
-        <p>आपकी वेबसाइट मोबाइल, टैबलेट और डेस्कटॉप सभी तरह के डिवाइस पर पूरी तरह परफेक्ट दिखेगी।</p>
+        <h3>📱 Fully Responsive</h3>
+        <p>Adaptive layouts tailored to look seamless on smartphones, tablets, and wide desktop screens.</p>
       </div>
       <div class="feature-box">
-        <h3>🛡️ सुरक्षित एवं विश्वसनीय</h3>
-        <p>हम सुरक्षा के आधुनिक मानकों का पालन करते हैं ताकि आपका डेटा हमेशा सुरक्षित और सुरक्षित रहे।</p>
+        <h3>🛡️ Secure & Scalable</h3>
+        <p>Built with robust modern web standards to keep your platform reliable, secure, and ready to scale.</p>
       </div>
     </div>
   </section>
 
   <!-- Pricing Board -->
   <section id="pricing">
-    <h2 class="section-title">हमारे <span>वेब डेवलपमेंट प्लान्स</span></h2>
+    <h2 class="section-title">PRICING <span>PLANS</span></h2>
     <div class="pricing-container">
       
       <!-- Common Plan -->
@@ -360,7 +434,7 @@
           <li class="disabled-feature"><span class="cross">✕</span> warranty for site</li>
           <li class="disabled-feature"><span class="cross">✕</span> support</li>
         </ul>
-        <a href="#appointment" class="plan-btn">चुनें</a>
+        <a href="#appointment" class="plan-btn">Select Plan</a>
       </div>
 
       <!-- Proper Plan -->
@@ -372,7 +446,7 @@
           <li><span class="check">✓</span> warranty for website (for 1 month)</li>
           <li class="disabled-feature"><span class="cross">✕</span> support</li>
         </ul>
-        <a href="#appointment" class="plan-btn">चुनें</a>
+        <a href="#appointment" class="plan-btn">Select Plan</a>
       </div>
 
       <!-- Dealer Plan -->
@@ -384,7 +458,7 @@
           <li><span class="check">✓</span> warranty for website (for 1 month)</li>
           <li class="disabled-feature"><span class="cross">✕</span> support</li>
         </ul>
-        <a href="#appointment" class="plan-btn">चुनें</a>
+        <a href="#appointment" class="plan-btn">Select Plan</a>
       </div>
 
       <!-- Elite Plan -->
@@ -396,7 +470,7 @@
           <li><span class="check">✓</span> warranty for website (for 1 month)</li>
           <li><span class="check">✓</span> support</li>
         </ul>
-        <a href="#appointment" class="plan-btn">चुनें</a>
+        <a href="#appointment" class="plan-btn">Select Plan</a>
       </div>
 
     </div>
@@ -404,19 +478,19 @@
 
   <!-- Appointment Section -->
   <section id="appointment">
-    <h2 class="section-title">एक <span>अपॉइंटमेंट बुक करें</span></h2>
+    <h2 class="section-title">BOOK AN <span>APPOINTMENT</span></h2>
     <div class="appointment-container">
       <form action="#" method="POST">
         <div class="form-group">
-          <label for="name">आपका नाम</label>
-          <input type="text" id="name" placeholder="अपना पूरा नाम दर्ज करें" required>
+          <label for="name">FULL NAME</label>
+          <input type="text" id="name" placeholder="John Doe" required>
         </div>
         <div class="form-group">
-          <label for="email">ईमेल पता</label>
-          <input type="email" id="email" placeholder="example@mail.com" required>
+          <label for="email">EMAIL ADDRESS</label>
+          <input type="email" id="email" placeholder="john@example.com" required>
         </div>
         <div class="form-group">
-          <label for="plan">प्लान चुनें</label>
+          <label for="plan">PREFERRED PLAN</label>
           <select id="plan">
             <option value="common">Common Plan</option>
             <option value="proper">Proper Plan</option>
@@ -425,10 +499,10 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="message">प्रोजेक्ट विवरण</label>
-          <textarea id="message" rows="4" placeholder="अपने प्रोजेक्ट के बारे में कुछ बताएं..."></textarea>
+          <label for="message">PROJECT DETAILS</label>
+          <textarea id="message" rows="4" placeholder="Briefly describe your project requirements..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">मीटिंग शेड्यूल करें</button>
+        <button type="submit" class="submit-btn">Schedule Meeting</button>
       </form>
     </div>
   </section>
@@ -439,5 +513,4 @@
   </footer>
 
 </body>
-  </html>
-          
+</html>
