@@ -20,16 +20,8 @@
       --border-bright: rgba(0, 255, 102, 0.6);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
@@ -42,528 +34,83 @@
     }
 
     .bg-grid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background-size: 50px 50px;
       background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(5, 7, 10, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 100;
-      padding: 18px 0;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Fira Code', monospace;
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--text-main);
-      text-decoration: none;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--accent-green);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-green);
-    }
-
-    .btn-nav {
-      background: transparent;
-      border: 1px solid var(--accent-green);
-      color: var(--accent-green);
-      padding: 8px 18px;
-      border-radius: 4px;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-nav:hover {
-      background: var(--accent-green);
-      color: #000;
-      box-shadow: 0 0 15px var(--accent-glow);
-    }
-
-    .hero {
-      padding: 180px 0 100px;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 16px;
-      background: rgba(0, 255, 102, 0.08);
-      border: 1px solid var(--border-color);
-      border-radius: 50px;
-      color: var(--accent-green);
-      font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: 3.8rem;
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      letter-spacing: -1px;
-    }
-
-    .hero h1 span {
-      color: var(--accent-green);
-      text-shadow: 0 0 25px var(--accent-glow);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .btn-primary {
-      background: var(--accent-green);
-      color: #000;
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-
-    .btn-primary:hover {
-      background: #00e65c;
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px var(--accent-glow);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      font-weight: 600;
-      padding: 14px 32px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent-green);
-      color: var(--accent-green);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-title h2 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .section-title h2 span {
-      color: var(--accent-green);
-    }
-
-    .section-title p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 30px;
-      margin: 40px 0 100px;
-      text-align: center;
-    }
-
-    .stat-item h3 {
-      font-size: 2.2rem;
-      color: var(--accent-green);
-      font-family: 'Fira Code', monospace;
-    }
-
-    .stat-item p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .services {
-      padding: 80px 0;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 30px 24px;
-      transition: all 0.3s ease;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .service-card:hover {
-      border-color: var(--accent-green);
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0, 255, 102, 0.1);
-    }
-
-    .service-card.popular {
-      border-color: var(--accent-green);
-      box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
-    }
-
-    .popular-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--accent-green);
-      color: #000;
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-family: 'Fira Code', monospace;
-    }
-
-    .service-card .tag {
-      font-family: 'Fira Code', monospace;
-      color: var(--accent-green);
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    .price-tag {
-      font-family: 'Fira Code', monospace;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent-green);
-      margin-bottom: 15px;
-    }
-
-    .service-features {
-      list-style: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 15px;
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
-
-    .service-features li {
-      color: var(--text-main);
-      font-size: 0.88rem;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .service-features li::before {
-      content: "✓";
-      color: var(--accent-green);
-      font-weight: bold;
-    }
-
-    .plan-btn {
-      display: block;
-      text-align: center;
-      background: transparent;
-      border: 1px solid var(--accent-green);
-      color: var(--accent-green);
-      padding: 10px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .plan-btn:hover {
-      background: var(--accent-green);
-      color: #000;
-      box-shadow: 0 0 15px var(--accent-glow);
-    }
-
-    .process {
-      padding: 80px 0;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-
-    .step-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 28px;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .step-num {
-      font-family: 'Fira Code', monospace;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent-green);
-      opacity: 0.6;
-      margin-bottom: 12px;
-    }
-
-    .step-card h4 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .step-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .portfolio {
-      padding: 80px 0;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-      border-color: var(--accent-green);
-    }
-
-    .project-preview {
-      height: 180px;
-      background: #111722;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Fira Code', monospace;
-      color: var(--text-muted);
-    }
-
-    .project-info {
-      padding: 24px;
-    }
-
-    .project-info h3 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .project-info p {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      margin-bottom: 16px;
-    }
-
-    .tech-stack {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tech-pill {
-      background: rgba(0, 255, 102, 0.08);
-      color: var(--accent-green);
-      font-family: 'Fira Code', monospace;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 4px;
-    }
-
-    .order-section {
-      padding: 100px 0;
-    }
-
-    .form-wrapper {
-      background: var(--card-bg);
-      border: 1px solid var(--border-bright);
-      box-shadow: 0 0 40px rgba(0, 255, 102, 0.08);
-      border-radius: 16px;
-      padding: 48px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .form-group.full-width {
-      grid-column: span 2;
-    }
-
-    label {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text-main);
-      font-family: 'Fira Code', monospace;
-    }
-
-    input, select, textarea {
-      background: #090d14;
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      transition: border-color 0.3s;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent-green);
-      box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
-    }
-
-    button.btn-submit {
-      background: var(--accent-green);
-      color: #000;
-      font-weight: 800;
-      font-size: 1.05rem;
-      padding: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    button.btn-submit:hover {
-      background: #00e65c;
-      box-shadow: 0 0 25px var(--accent-glow);
-    }
-
-    #status-msg {
-      margin-top: 20px;
-      padding: 12px;
-      border-radius: 6px;
-      display: none;
-      text-align: center;
-      font-size: 0.9rem;
-      font-family: 'Fira Code', monospace;
-    }
-
-    #status-msg.success {
-      background: rgba(0, 255, 102, 0.15);
-      border: 1px solid var(--accent-green);
-      color: var(--accent-green);
-    }
-
-    #status-msg.error {
-      background: rgba(255, 50, 50, 0.15);
-      border: 1px solid #ff3232;
-      color: #ff5555;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
+      pointer-events: none; z-index: 0;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(5, 7, 10, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); z-index: 100; padding: 18px 0; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Fira Code', monospace; font-weight: 700; font-size: 1.4rem; color: var(--text-main); text-decoration: none; letter-spacing: -1px; }
+    .logo span { color: var(--accent-green); }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--accent-green); }
+    .btn-nav { background: transparent; border: 1px solid var(--accent-green); color: var(--accent-green); padding: 8px 18px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem; text-decoration: none; transition: all 0.3s ease; }
+    .btn-nav:hover { background: var(--accent-green); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
+    .hero { padding: 180px 0 100px; text-align: center; }
+    .hero-badge { display: inline-block; padding: 6px 16px; background: rgba(0, 255, 102, 0.08); border: 1px solid var(--border-color); border-radius: 50px; color: var(--accent-green); font-family: 'Fira Code', monospace; font-size: 0.85rem; margin-bottom: 24px; }
+    .hero h1 { font-size: 3.8rem; font-weight: 900; line-height: 1.15; margin-bottom: 24px; letter-spacing: -1px; }
+    .hero h1 span { color: var(--accent-green); text-shadow: 0 0 25px var(--accent-glow); }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
+    .hero-buttons { display: flex; justify-content: center; gap: 20px; }
+    .btn-primary { background: var(--accent-green); color: #000; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 0 20px var(--accent-glow); }
+    .btn-primary:hover { background: #00e65c; transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-glow); }
+    .btn-secondary { background: transparent; color: var(--text-main); border: 1px solid var(--border-color); font-weight: 600; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; }
+    .btn-secondary:hover { border-color: var(--accent-green); color: var(--accent-green); }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; }
+    .section-title h2 span { color: var(--accent-green); }
+    .section-title p { color: var(--text-muted); font-size: 1rem; }
+    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin: 40px 0 100px; text-align: center; }
+    .stat-item h3 { font-size: 2.2rem; color: var(--accent-green); font-family: 'Fira Code', monospace; }
+    .stat-item p { color: var(--text-muted); font-size: 0.9rem; }
+    .services, .process, .portfolio { padding: 80px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .service-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px 24px; transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; }
+    .service-card:hover { border-color: var(--accent-green); transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0, 255, 102, 0.1); }
+    .service-card.popular { border-color: var(--accent-green); box-shadow: 0 0 20px rgba(0, 255, 102, 0.15); }
+    .popular-badge { position: absolute; top: 15px; right: 15px; background: var(--accent-green); color: #000; font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; font-family: 'Fira Code', monospace; }
+    .service-card .tag { font-family: 'Fira Code', monospace; color: var(--accent-green); font-size: 0.8rem; margin-bottom: 10px; display: block; }
+    .service-card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .price-tag { font-family: 'Fira Code', monospace; font-size: 1.8rem; font-weight: 700; color: var(--accent-green); margin-bottom: 15px; }
+    .service-features { list-style: none; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px; margin-bottom: 20px; flex-grow: 1; }
+    .service-features li { color: var(--text-main); font-size: 0.88rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .service-features li::before { content: "✓"; color: var(--accent-green); font-weight: bold; }
+    .plan-btn { display: block; text-align: center; background: transparent; border: 1px solid var(--accent-green); color: var(--accent-green); padding: 10px; border-radius: 6px; text-decoration: none; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
+    .plan-btn:hover { background: var(--accent-green); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .step-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 28px; border-radius: 10px; position: relative; }
+    .step-num { font-family: 'Fira Code', monospace; font-size: 2rem; font-weight: 700; color: var(--accent-green); opacity: 0.6; margin-bottom: 12px; }
+    .step-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+    .step-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+    .project-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; transition: all 0.3s ease; }
+    .project-card:hover { border-color: var(--accent-green); }
+    .project-preview { height: 180px; background: #111722; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-family: 'Fira Code', monospace; color: var(--text-muted); }
+    .project-info { padding: 24px; }
+    .project-info h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .project-info p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; }
+    .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tech-pill { background: rgba(0, 255, 102, 0.08); color: var(--accent-green); font-family: 'Fira Code', monospace; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; }
+    .order-section { padding: 100px 0; }
+    .form-wrapper { background: var(--card-bg); border: 1px solid var(--border-bright); box-shadow: 0 0 40px rgba(0, 255, 102, 0.08); border-radius: 16px; padding: 48px; max-width: 800px; margin: 0 auto; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .form-group.full-width { grid-column: span 2; }
+    label { font-size: 0.88rem; font-weight: 600; color: var(--text-main); font-family: 'Fira Code', monospace; }
+    input, select, textarea { background: #090d14; border: 1px solid var(--border-color); color: var(--text-main); padding: 14px; border-radius: 8px; font-size: 0.95rem; font-family: inherit; transition: border-color 0.3s; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 10px rgba(0, 255, 102, 0.2); }
+    button.btn-submit { background: var(--accent-green); color: #000; font-weight: 800; font-size: 1.05rem; padding: 16px; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 10px; }
+    button.btn-submit:hover { background: #00e65c; box-shadow: 0 0 25px var(--accent-glow); }
+    #status-msg { margin-top: 20px; padding: 12px; border-radius: 6px; display: none; text-align: center; font-size: 0.9rem; font-family: 'Fira Code', monospace; }
+    #status-msg.success { background: rgba(0, 255, 102, 0.15); border: 1px solid var(--accent-green); color: var(--accent-green); }
+    #status-msg.error { background: rgba(255, 50, 50, 0.15); border: 1px solid #ff3232; color: #ff5555; }
+    footer { border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
       .form-grid { grid-template-columns: 1fr; }
@@ -613,7 +160,7 @@
       </div>
       <div class="stat-item">
         <h3>24/7</h3>
-        <p>Webhook Integration</p>
+        <p>Database Storage</p>
       </div>
       <div class="stat-item">
         <h3>5.0★</h3>
@@ -695,7 +242,7 @@
         <div class="step-card">
           <div class="step-num">01.</div>
           <h4>Requirement Gathering</h4>
-          <p>You submit the order form. Data flows to Make.com and notifies us instantly.</p>
+          <p>You submit the order form. Data flows into Firebase Database instantly.</p>
         </div>
         <div class="step-card">
           <div class="step-num">02.</div>
@@ -775,86 +322,11 @@
               <label for="phone">PHONE / WHATSAPP</label>
               <input type="text" id="phone" name="phone" placeholder="+91 98765 43210">
             </div>
-
-            <div class="form-group">
-              <label for="service">SELECT PLAN *</label>
-              <select id="service" name="service" required>
-                <option value="Common Plan (₹2,999)">Common Plan (₹2,999)</option>
-                <option value="Proper Plan (₹4,999)">Proper Plan (₹4,999)</option>
-                <option value="Dealer Plan (₹6,999)">Dealer Plan (₹6,999)</option>
-                <option value="Elite Plan (₹9,999)">Elite Plan (₹9,999)</option>
-              </select>
-            </div>
-
-            <div class="form-group full-width">
-              <label for="details">PROJECT SCOPE & REQUIREMENTS *</label>
-              <textarea id="details" name="details" rows="5" placeholder="Describe your website goals, feature requirements, preferred style, etc..." required></textarea>
-            </div>
           </div>
-
-          <button type="submit" class="btn-submit" id="submitBtn">TRANSMIT ORDER REQUEST &rarr;</button>
-          <div id="status-msg"></div>
         </form>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 CYBERCRAFT STUDIO. All rights reserved. Powered by HTML5 & Webhook Automation.</p>
-    </div>
-  </footer>
-
-  <script>
-    // MAKE.COM WEBHOOK URL
-    const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/ys7mp85dc3hup7kt67a57u3u7dal7xjx";
-
-    const form = document.getElementById('orderForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const statusMsg = document.getElementById('status-msg');
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      submitBtn.innerText = "TRANSMITTING DATA...";
-      submitBtn.disabled = true;
-
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        service: document.getElementById('service').value,
-        details: document.getElementById('details').value,
-        timestamp: new Date().toISOString()
-      };
-
-      try {
-        const response = await fetch(MAKE_WEBHOOK_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-
-        if (response.ok || response.status === 200) {
-          statusMsg.style.display = 'block';
-          statusMsg.className = 'success';
-          statusMsg.innerText = '✓ ORDER TRANSMITTED SUCCESSFULLY! We will review your project and contact you shortly.';
-          form.reset();
-        } else {
-          throw new Error('Server response failed');
-        }
-      } catch (error) {
-        statusMsg.style.display = 'block';
-        statusMsg.className = 'error';
-        statusMsg.innerText = '✕ Transmission failed. Please try again or reach out directly.';
-      } finally {
-        submitBtn.innerText = "TRANSMIT ORDER REQUEST →";
-        submitBtn.disabled = false;
-      }
-    });
-  </script>
 </body>
-  </html>
-            
+</html>
