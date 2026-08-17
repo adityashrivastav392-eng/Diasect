@@ -1,805 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta property="og:site_name" content="Diasect" />
-     <link rel="icon" href="/logo.png" type="image/png" />
-  <meta name="google-site-verification" content="6HV0d4z-STBPPZp73wcFFgy6Ll8fGTkkXOsAHyfK5DI" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diasect</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-color: #0b0f19;
-      --card-bg: rgba(17, 24, 39, 0.7);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --primary-accent: #3b82f6;
-      --accent-glow: rgba(59, 130, 246, 0.3);
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-color: rgba(255, 255, 255, 0.1);
-      --disabled-text: #4b5563;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags for Google Search Console -->
+    <title>Omni Xenon | AI-Native Development Studio</title>
+    <meta name="description" content="Omni Xenon is an AI-native development studio founded by Gautam (@gautam.0ng). We architect and deploy high-performance web applications and ecosystems at ultra-fast speeds.">
+    <meta name="author" content="Gautam">
+    <meta name="keywords" content="Omni Xenon, Gautam, AI Developer, Web Architect, SaaS, Rapid Prototyping, AI-native, Coding">
+    <meta property="og:title" content="Omni Xenon | The Future in Progress">
+    <meta property="og:description" content="AI-native development studio by Gautam (@gautam.0ng).">
+    <meta property="og:type" content="website">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-      scroll-behavior: smooth;
-    }
+    <style>
+        :root {
+            --bg-color: #080b11;
+            --card-bg: #0f172a;
+            --accent-color: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(147, 51, 234, 0.06) 0%, transparent 40%);
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
-    .welcome-banner {
-      background: linear-gradient(90deg, #1e3a8a, #3b82f6, #9333ea);
-      color: #fff;
-      padding: 0.8rem 5%;
-      text-align: center;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      letter-spacing: 0.3px;
-    }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        header { text-align: center; margin-bottom: 4rem; padding-top: 2rem; }
+        
+        /* Logo & Profile Images */
+        .logo-img { width: 80px; height: auto; margin-bottom: 1.5rem; }
+        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--accent-color); margin: 1rem auto; object-fit: cover; }
+        
+        h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .handle { color: var(--accent-color); font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+        p.subtitle { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto; font-style: italic; }
 
-    .welcome-banner span { font-weight: 700; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.8rem; }
+        
+        .skills-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skills-list li { background: #1e293b; color: #e2e8f0; padding: 0.4rem 0.9rem; border-radius: 8px; font-size: 0.85rem; border: 1px solid rgba(255, 255, 255, 0.05); }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 8%;
-      background: rgba(11, 15, 25, 0.8);
-      backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
-    }
+        .contact-form { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 2.5rem; }
+        input, textarea { width: 100%; padding: 0.9rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); margin-bottom: 1rem; outline: none; }
+        button { background: var(--accent-color); color: #0f172a; border: none; padding: 1rem; border-radius: 8px; font-weight: 700; width: 100%; cursor: pointer; }
 
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #60a5fa, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-    }
-
-    .hamburger {
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: var(--text-main);
-      transition: color 0.3s;
-    }
-
-    .hamburger:hover { color: var(--primary-accent); }
-
-    .sidebar-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px);
-      z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease;
-    }
-    .sidebar-overlay.active { opacity: 1; visibility: visible; }
-
-    .sidebar {
-      position: fixed; top: 0; right: -320px; width: 320px; height: 100%;
-      background: #111827; border-left: 1px solid var(--border-color);
-      z-index: 2001; box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-      display: flex; flex-direction: column; padding: 2.5rem 2rem;
-      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow-y: auto;
-    }
-    .sidebar.active { right: 0; }
-
-    .sidebar-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem;
-    }
-    .sidebar-header h3 { font-size: 1.1rem; font-weight: 800; letter-spacing: 1.5px; color: var(--text-muted); }
-
-    .close-sidebar {
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border-color);
-      width: 35px; height: 35px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: var(--text-main); transition: all 0.3s;
-    }
-    .close-sidebar:hover { background: rgba(255,255,255,0.1); }
-
-    .sidebar-links { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
-    .sidebar-links a {
-      color: var(--text-main); text-decoration: none; font-size: 1.05rem; font-weight: 500;
-      transition: color 0.3s, transform 0.3s; cursor: pointer; display: inline-block;
-    }
-    .sidebar-links a:hover { color: #60a5fa; transform: translateX(5px); }
-
-    .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
-      z-index: 3000; display: flex; justify-content: center; align-items: center;
-      opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 1rem;
-    }
-    .modal-overlay.active { opacity: 1; visibility: visible; }
-
-    .modal-content {
-      background: #111827; border: 1px solid var(--border-color);
-      width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto;
-      padding: 3rem; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      position: relative; transform: translateY(20px) scale(0.98);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-
-    .close-modal {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border-color);
-      width: 36px; height: 36px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: var(--text-main); transition: all 0.3s;
-    }
-    .close-modal:hover { background: rgba(255,255,255,0.1); }
-
-    .modal-content h2 { font-size: 1.8rem; margin-bottom: 1.5rem; letter-spacing: 0.5px; }
-    .modal-content h2 span {
-      background: linear-gradient(135deg, #60a5fa, #c084fc);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-
-    .leaders-container { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-    .leader-card {
-      background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color);
-      border-radius: 12px; overflow: hidden; transition: border-color 0.3s;
-    }
-    .leader-card:hover { border-color: rgba(59, 130, 246, 0.4); }
-    .leader-header-row { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; cursor: pointer; user-select: none; }
-    .leader-summary-info { display: flex; align-items: center; gap: 15px; }
-    .leader-thumb { width: 50px; height: 50px; border-radius: 50%; object-footer: cover; border: 2px solid var(--primary-accent); box-shadow: 0 0 10px var(--accent-glow); }
-    .leader-title-text h4 { font-size: 1.05rem; color: var(--text-main); margin-bottom: 2px; }
-    .leader-title-text p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
-    .accordion-arrow { color: var(--primary-accent); font-size: 1.1rem; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .leader-card.active .accordion-arrow { transform: rotate(180deg); }
-    .leader-details-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease; background: rgba(0, 0, 0, 0.15); padding: 0 1.5rem; border-top: 0px solid rgba(255,255,255,0.05); }
-    .leader-card.active .leader-details-body { max-height: 300px; padding: 1.2rem 1.5rem 1.5rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
-    .leader-details-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
-  </style>
+        footer { text-align: center; margin-top: 4rem; padding-bottom: 2rem; color: var(--text-muted); font-size: 0.85rem; }
+    </style>
 </head>
 <body>
 
-  <div class="welcome-banner">
-    <i class="fa-solid fa-wand-magic-sparkles"></i>
-    <span>Welcome customer, experience next-generation web craftsmanship at Diasect!</span>
-  </div>
+    <div class="container">
+        <header>
+            <!-- Logo -->
+            <img src="logo.png" alt="Omni Xenon Logo" class="logo-img">
+            
+            <!-- Gautam Profile -->
+            <img src="gautam.png" alt="Gautam (@gautam.0ng)" class="profile-img">
+            <h1>OMNI XENON</h1>
+            <div class="handle">Gautam (@gautam.0ng)</div>
+            <p class="subtitle">The future in progress, but waiting for you.</p>
+        </header>
 
-  <header>
-    <a onclick="toggleAboutModal()" class="logo">&lt;DIASECT/&gt;</a>
-    <div class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars-staggered"></i></div>
-  </header>
-  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <h3>NAVIGATION</h3>
-      <button class="close-sidebar" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <ul class="sidebar-links">
-      <li><a onclick="toggleSidebar(); toggleAboutModal();"><i class="fa-solid fa-circle-info" style="margin-right: 10px; color: #3b82f6;"></i> About Us</a></li>
-      <li><a href="#why-us" onclick="toggleSidebar()"><i class="fa-solid fa-bolt" style="margin-right: 10px; color: #3b82f6;"></i> Why Us</a></li>
-      <li><a onclick="toggleSidebar(); checkAuthAndOpenSites();"><i class="fa-solid fa-display" style="margin-right: 10px; color: #3b82f6;"></i> Your Sites Status</a></li>
-      <li><a onclick="toggleSidebar(); togglePricingOverlay();"><i class="fa-solid fa-tags" style="margin-right: 10px; color: #3b82f6;"></i> Pricing Plans</a></li>
-      <li><a onclick="toggleSidebar(); toggleLoginModal();" id="loginMenuText"><i class="fa-solid fa-right-to-bracket" style="margin-right: 10px; color: #3b82f6;"></i> Login / Account</a></li>
-      <li><a href="#appointment" onclick="toggleSidebar()"><i class="fa-solid fa-calendar-check" style="margin-right: 10px; color: #3b82f6;"></i> Book Appointment</a></li>
-    </ul>
-  </div>
-
-  <!-- About Modal -->
-  <div class="modal-overlay" id="aboutModal" onclick="toggleAboutModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="close-modal" onclick="toggleAboutModal()"><i class="fa-solid fa-xmark"></i></button>
-      <h2>ABOUT <span>DIASÉCT</span></h2>
-      <p style="margin-bottom: 1.2rem; font-size: 0.95rem; color: var(--text-muted);">
-        Welcome to <strong>Diasect</strong>! We are a high-performance digital agency crafting futuristic web and app experiences. Tap any leader below to expand details:
-      </p>
-
-      <div class="leaders-container">
-        <!-- Leader 1: Gautam Sahay with Google Drive Image -->
-        <div class="leader-card" id="leader-1">
-          <div class="leader-header-row" onclick="toggleAccordion('leader-1')">
-            <div class="leader-summary-info">
-              <img src="gautam.png" alt="Gautam Sahay" class="leader-thumb" onerror="this.src='https://via.placeholder.com/60?text=GS'">
-              <div class="leader-title-text">
-                <h4>Gautam Sahay (Founder and lead partner)</h4>
-                <p>Founder & Lead Partner | Full-Stack App & Web Developer</p>
-              </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Mission</h3>
+                <p style="color: var(--text-muted);">Architecting and deploying high-performance AI-native solutions at ultra-fast speeds.</p>
             </div>
-            <i class="fa-solid fa-chevron-down accordion-arrow"></i>
-          </div>
-          <div class="leader-details-body">
-            <p>Expert Full-Stack & App Developer with extensive hands-on experience in bug bounty hunting, ethical hacking, and professional freelancing. Currently leading Diasect as Founder & Lead Partner, managing core development, technical architectures, and high-security implementations.</p>
-          </div>
-        </div>
-
-        <!-- Leader 2: Piyush -->
-        <div class="leader-card" id="leader-2">
-          <div class="leader-header-row" onclick="toggleAccordion('leader-2')">
-            <div class="leader-summary-info">
-              <img src="piyush.png" alt="Piyush" class="leader-thumb" onerror="this.src='https://via.placeholder.com/60?text=P'">
-              <div class="leader-title-text">
-                <h4>Piyush (deal closer)</h4>
-                <p>Co-Partner | Client Relations & Conversion Lead</p>
-              </div>
+            <div class="card">
+                <h3>Technical Stack</h3>
+                <ul class="skills-list">
+                    <li>AI-Native Development</li>
+                    <li>Full Stack Architecture</li>
+                    <li>SaaS Development</li>
+                    <li>System Design</li>
+                </ul>
             </div>
-            <i class="fa-solid fa-chevron-down accordion-arrow"></i>
-          </div>
-          <div class="leader-details-body">
-            <p>Master strategist in client acquisition and relationship management. He expertly cracks client requirements, communicates value propositions effectively, converts prospects into active long-term partnerships, and drives consistent business growth.</p>
-          </div>
         </div>
 
-        <!-- Leader 3: Vivek -->
-        <div class="leader-card" id="leader-3">
-          <div class="leader-header-row" onclick="toggleAccordion('leader-3')">
-            <div class="leader-summary-info">
-              <img src="vivek.png" alt="Vivek" class="leader-thumb" onerror="this.src='https://via.placeholder.com/60?text=V'">
-              <div class="leader-title-text">
-                <h4>Vivek (Marketer)</h4>
-                <p>Co-Partner | Marketing, Advertising & Financial Manager</p>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-down accordion-arrow"></i>
-          </div>
-          <div class="leader-details-body">
-            <p>Handles the core marketing campaigns, digital advertising workflows, and meticulous financial oversight. He ensures robust brand reach across markets while professionally balancing capital allocation and operational finances.</p>
-          </div>
+        <div class="contact-form">
+            <h3>Get in Touch</h3>
+            <form action="#" method="POST">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="4" placeholder="Let's build something extraordinary..."></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
-      </div>
+
+        <footer>
+            <p>© 2026 OMNI XENON. Founded by Gautam (@gautam.0ng).</p>
+        </footer>
     </div>
-  </div>
 
-  <!-- Login Modal -->
-  <div class="modal-overlay" id="loginModal" onclick="toggleLoginModal()">
-    <div class="modal-content" style="max-width: 450px;" onclick="event.stopPropagation()">
-      <button class="close-modal" onclick="toggleLoginModal()"><i class="fa-solid fa-xmark"></i></button>
-      <h2>CLIENT <span>LOGIN</span></h2>
-      <p style="margin-bottom: 1.5rem; font-size: 0.9rem;" id="loginModalSubtitle">Enter your details to track your personalized sites & status.</p>
-      <form onsubmit="handleLogin(event)">
-        <div class="form-group" id="nameFieldGroup">
-          <label for="login-name">FULL NAME</label>
-          <input type="text" id="login-name" placeholder="John Doe">
-        </div>
-        <div class="form-group" id="phoneFieldGroup">
-          <label for="login-phone">PHONE / WHATSAPP NUMBER</label>
-          <input type="tel" id="login-phone" placeholder="+91 9876543210">
-        </div>
-        <div class="form-group">
-          <label for="login-email">EMAIL ADDRESS</label>
-          <input type="email" id="login-email" placeholder="john@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="login-pass">PASSWORD</label>
-          <input type="password" id="login-pass" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="submit-btn" id="loginBtn" style="margin-top: 0.5rem;">Sign In / Register</button>
-        <button type="button" id="logoutBtn" onclick="handleLogout()" class="submit-btn" style="margin-top: 0.5rem; background: #ef4444; display: none;">Log Out</button>
-        <p id="login-status" style="margin-top: 1rem; text-align: center; font-size: 0.9rem;"></p>
-      </form>
-    </div>
-  </div>
-  <style>
-    .fullscreen-overlay {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: var(--bg-color); z-index: 4000; overflow-y: auto;
-      padding: 3rem 8%; opacity: 0; visibility: hidden; transition: all 0.35s ease;
-    }
-    .fullscreen-overlay.active { opacity: 1; visibility: visible; }
-
-    .fullscreen-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;
-    }
-
-    .close-fullscreen {
-      background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border-color);
-      padding: 0.7rem 1.4rem; font-size: 0.95rem; font-weight: 600; border-radius: 8px;
-      cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.3s;
-    }
-    .close-fullscreen:hover { background: rgba(255, 255, 255, 0.1); }
-
-    .hero {
-      position: relative; min-height: 88vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center; padding: 0 5%;
-      overflow: hidden; border-bottom: 1px solid var(--border-color);
-    }
-    .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -1.5px; line-height: 1.15; }
-    .hero h1 span {
-      background: linear-gradient(135deg, #60a5fa, #c084fc, #ec4899);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 2.5rem; }
-    .cta-btn {
-      display: inline-block; background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: #fff; padding: 1rem 2.8rem; font-weight: 700; border-radius: 8px;
-      text-decoration: none; letter-spacing: 0.5px; box-shadow: 0 10px 25px -5px var(--accent-glow);
-      transition: all 0.3s;
-    }
-    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.5); }
-
-    section { padding: 6rem 8%; }
-    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3.5rem; font-weight: 800; }
-    .section-title span {
-      background: linear-gradient(135deg, #60a5fa, #c084fc);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .feature-box {
-      background: var(--card-bg); border: 1px solid var(--border-color);
-      padding: 3rem 2.2rem; border-radius: 16px; backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.4s;
-    }
-    .feature-box:hover { border-color: rgba(59, 130, 246, 0.4); transform: translateY(-6px); }
-    .feature-box h3 { color: #60a5fa; font-size: 1.35rem; margin-bottom: 1rem; font-weight: 700; }
-    .feature-box p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
-
-    .sites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
-    .site-card {
-      background: var(--card-bg); border: 1px solid var(--border-color);
-      border-radius: 14px; padding: 1.8rem; backdrop-filter: blur(12px);
-    }
-    .site-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-main); }
-    .plan-tag { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 6px; }
-    .status-badge {
-      display: inline-block; padding: 5px 14px; border-radius: 30px; font-size: 0.75rem;
-      font-weight: 700; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.5px;
-    }
-    .status-pending { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
-    .status-approved { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-    .status-completed { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
-
-    .open-btn {
-      display: inline-block; width: 100%; text-align: center; background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color); color: #fff; padding: 0.8rem; border-radius: 8px;
-      font-weight: 600; margin-top: 0.5rem; transition: all 0.3s; text-decoration: none;
-    }
-    .open-btn:hover { background: var(--primary-accent); border-color: var(--primary-accent); }
-
-    .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
-    .card {
-      background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px;
-      padding: 2.5rem 2rem; display: flex; flex-direction: column; backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.4s; position: relative;
-    }
-    .card:hover { transform: translateY(-8px); border-color: rgba(59, 130, 246, 0.4); }
-    .card.featured { border: 2px solid var(--primary-accent); background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(30, 58, 138, 0.2) 100%); }
-    .card.featured::before {
-      content: 'MOST POPULAR'; position: absolute; top: -14px; right: 25px;
-      background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; font-weight: 800;
-      font-size: 0.68rem; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px;
-    }
-    .plan-title { font-size: 1.6rem; margin-bottom: 1.8rem; font-weight: 700; }
-    .features-list { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
-    .features-list li { margin-bottom: 1rem; font-size: 0.95rem; display: flex; align-items: center; }
-    .check { color: #4ade80; margin-right: 12px; font-weight: bold; }
-    .cross { color: var(--disabled-text); margin-right: 12px; font-weight: bold; }
-    .disabled-feature { color: var(--disabled-text); text-decoration: line-through; }
-
-    .plan-btn {
-      background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color);
-      padding: 0.9rem; border-radius: 8px; font-weight: 700; text-align: center; text-decoration: none; transition: all 0.3s;
-    }
-    .plan-btn:hover, .card.featured .plan-btn { background: linear-gradient(135deg, #3b82f6, #2563eb); border-color: #3b82f6; color: #fff; }
-
-    .appointment-container {
-      max-width: 580px; margin: 0 auto; background: var(--card-bg); padding: 2.8rem 2.5rem;
-      border-radius: 16px; border: 1px solid var(--border-color); backdrop-filter: blur(12px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    .appointment-header-info {
-      background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2);
-      padding: 0.8rem 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem;
-      color: var(--text-muted); display: flex; align-items: center; gap: 10px;
-    }
-    .appointment-header-info strong { color: var(--text-main); }
-    .form-group { margin-bottom: 1.8rem; }
-    .form-group label { display: block; margin-bottom: 0.6rem; font-size: 0.85rem; letter-spacing: 1px; font-weight: 600; color: var(--text-muted); }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color);
-      border-radius: 8px; color: var(--text-main); outline: none; font-size: 1rem; transition: all 0.3s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--primary-accent); background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
-    }
-    .form-group select option { background: #111827; color: #fff; }
-    .submit-btn {
-      width: 100%; background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; padding: 1.1rem;
-      border: none; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer;
-      letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; box-shadow: 0 10px 25px -5px var(--accent-glow);
-    }
-    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.4); }
-    #form-status { margin-top: 1.2rem; text-align: center; font-weight: 600; font-size: 0.95rem; }
-  </style>
-
-  <!-- Your Sites Status Overlay -->
-  <div class="fullscreen-overlay" id="sitesOverlay">
-    <div class="fullscreen-header">
-      <h2 style="font-size: 2rem;">YOUR <span>SITES STATUS</span></h2>
-      <button class="close-fullscreen" onclick="toggleSitesOverlay()"><i class="fa-solid fa-xmark"></i> Close</button>
-    </div>
-    <div class="sites-grid" id="sitesContainer">
-      <p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">Loading your status...</p>
-    </div>
-  </div>
-
-  <!-- Pricing Plans Overlay -->
-  <div class="fullscreen-overlay" id="pricingOverlay">
-    <div class="fullscreen-header">
-      <h2 style="font-size: 2rem;">PRICING <span>PLANS</span></h2>
-      <button class="close-fullscreen" onclick="togglePricingOverlay()"><i class="fa-solid fa-xmark"></i> Close</button>
-    </div>
-    <div class="pricing-container" style="max-width: 1200px; margin: 0 auto;">
-      <div class="card">
-        <h3 class="plan-title">Common Plan</h3>
-        <ul class="features-list">
-          <li><span class="check">✓</span> a working website</li>
-          <li class="disabled-feature"><span class="cross">✕</span> uploading ads</li>
-          <li class="disabled-feature"><span class="cross">✕</span> warranty for site</li>
-          <li class="disabled-feature"><span class="cross">✕</span> support</li>
-        </ul>
-        <a href="#appointment" onclick="togglePricingOverlay(); selectPlan('Common Plan')" class="plan-btn">₹2,999</a>
-      </div>
-      <div class="card">
-        <h3 class="plan-title">Proper Plan</h3>
-        <ul class="features-list">
-          <li><span class="check">✓</span> a working website</li>
-          <li class="disabled-feature"><span class="cross">✕</span> uploading ads</li>
-          <li><span class="check">✓</span> warranty for website (for 1 month)</li>
-          <li class="disabled-feature"><span class="cross">✕</span> support</li>
-        </ul>
-        <a href="#appointment" onclick="togglePricingOverlay(); selectPlan('Proper Plan')" class="plan-btn">₹4,999</a>
-      </div>
-      <div class="card">
-        <h3 class="plan-title">Dealer Plan</h3>
-        <ul class="features-list">
-          <li><span class="check">✓</span> a working website</li>
-          <li><span class="check">✓</span> uploading ads (2 only)</li>
-          <li><span class="check">✓</span> warranty for website (for 3 month)</li>
-          <li class="disabled-feature"><span class="cross">✕</span> support</li>
-        </ul>
-        <a href="#appointment" onclick="togglePricingOverlay(); selectPlan('Dealer Plan')" class="plan-btn">₹7,999</a>
-      </div>
-      <div class="card featured">
-        <h3 class="plan-title">Elite Plan</h3>
-        <ul class="features-list">
-          <li><span class="check">✓</span> a working website</li>
-          <li><span class="check">✓</span> uploading ads (5 only)</li>
-          <li><span class="check">✓</span> warranty for website (for 6 month)</li>
-          <li><span class="check">✓</span> support</li>
-        </ul>
-        <a href="#appointment" onclick="togglePricingOverlay(); selectPlan('Elite Plan')" class="plan-btn">₹9,999</a>
-      </div>
-    </div>
-  </div>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>DIASECT NEXT-GEN <span>DIGITAL REALITIES</span></h1>
-      <p>High-performance web applications built for speed, exceptional aesthetics, and unmatched reliability.</p>
-      <a href="#appointment" class="cta-btn">Book an Appointment</a>
-    </div>
-  </section>
-
-  <section id="why-us">
-    <h2 class="section-title">WHY <span>CHOOSE US</span></h2>
-    <div class="features-grid">
-      <div class="feature-box">
-        <h3>⚡ Ultra-Fast Performance</h3>
-        <p>Engineered with lightweight, highly optimized codebases ensuring lightning-fast load times and core web vitals excellence.</p>
-      </div>
-      <div class="feature-box">
-        <h3>📱 Fluid Responsiveness</h3>
-        <p>Precision layouts flawlessly calibrated to deliver optimal interactions across mobile devices, tablets, and massive displays.</p>
-      </div>
-      <div class="feature-box">
-        <h3>🔒 Enterprise Security</h3>
-        <p>Built using robust modern protocols, safeguarding your data integrity and ensuring seamless platform scalability.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Appointment Section -->
-  <section id="appointment">
-    <h2 class="section-title">BOOK AN <span>APPOINTMENT</span></h2>
-    <div class="appointment-container">
-      <form id="appointment-form" onsubmit="submitAppointment(event)">
-        <div class="appointment-header-info">
-          <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i> 
-          <span>Booking as: <strong id="loggedInUserDisplay">Client</strong></span>
-        </div>
-        <div class="form-group">
-          <label for="plan">CHOOSE A PLAN</label>
-          <select id="plan">
-            <option value="Common Plan">Common Plan</option>
-            <option value="Proper Plan">Proper Plan</option>
-            <option value="Dealer Plan">Dealer Plan</option>
-            <option value="Elite Plan">Elite Plan</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">PROJECT DETAILS / REQUIREMENTS</label>
-          <textarea id="message" rows="4" placeholder="Briefly describe your project requirements..."></textarea>
-        </div>
-        <button type="submit" id="submit-btn" class="submit-btn">Submit Appointment</button>
-        <p id="form-status"></p>
-      </form>
-    </div>
-  </section>
-  <footer>
-    <p>© All Rights Reserved. Designed & Developed by Diasect officially (Founder: Gautam Sahay / Aditya Sanskar).</p>
-  </footer>
-  <script>
-    const DB_URL = "https://slace-4d2ae-default-rtdb.asia-southeast1.firebaseio.com/";
-
-    document.addEventListener("DOMContentLoaded", () => {
-      updateLoginUI();
-      const loggedUser = JSON.parse(localStorage.getItem('diasect_user'));
-      const userDisplay = document.getElementById('loggedInUserDisplay');
-      if (loggedUser && userDisplay) {
-        userDisplay.textContent = `${loggedUser.name} (${loggedUser.email})`;
-      }
-    });
-
-    function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('active');
-      document.getElementById('sidebarOverlay').classList.toggle('active');
-    }
-
-    function toggleAboutModal() {
-      document.getElementById('aboutModal').classList.toggle('active');
-    }
-
-    function toggleAccordion(leaderId) {
-      const card = document.getElementById(leaderId);
-      const wasActive = card.classList.contains('active');
-      document.querySelectorAll('.leader-card').forEach(el => el.classList.remove('active'));
-      if (!wasActive) {
-        card.classList.add('active');
-      }
-    }
-
-    function toggleLoginModal() {
-      document.getElementById('loginModal').classList.toggle('active');
-    }
-
-    function togglePricingOverlay() {
-      document.getElementById('pricingOverlay').classList.toggle('active');
-    }
-
-    function selectPlan(planName) {
-      document.getElementById('plan').value = planName;
-    }
-
-    function checkAuthAndOpenSites() {
-      const loggedUser = localStorage.getItem('diasect_user');
-      if (!loggedUser) {
-        alert("Pehle aapko Login karna padega tabhi aap apni Sites ka Status dekh sakte hain!");
-        toggleLoginModal();
-      } else {
-        const overlay = document.getElementById('sitesOverlay');
-        overlay.classList.add('active');
-        loadUserSites();
-      }
-    }
-
-    function toggleSitesOverlay() {
-      document.getElementById('sitesOverlay').classList.toggle('active');
-    }
-
-    async function handleLogin(event) {
-      event.preventDefault();
-      const name = document.getElementById('login-name').value.trim();
-      const phone = document.getElementById('login-phone').value.trim();
-      const email = document.getElementById('login-email').value.trim();
-      const statusText = document.getElementById('login-status');
-      
-      const userData = { 
-        name: name, 
-        phone: phone, 
-        email: email,
-        loginTime: Date.now()
-      };
-
-      statusText.style.color = '#60a5fa';
-      statusText.textContent = 'Syncing with database...';
-
-      try {
-        const emailKey = email.replace(/\./g, ',');
-        await fetch(`${DB_URL}users/${emailKey}.json`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(userData)
-        });
-
-        localStorage.setItem('diasect_user', JSON.stringify(userData));
-
-        statusText.style.color = '#4ade80';
-        statusText.textContent = `Welcome back, ${name}! Login successful.`;
-        
-        setTimeout(() => {
-          toggleLoginModal();
-          statusText.textContent = '';
-          updateLoginUI();
-          const loggedUser = JSON.parse(localStorage.getItem('diasect_user'));
-          const userDisplay = document.getElementById('loggedInUserDisplay');
-          if (loggedUser && userDisplay) {
-            userDisplay.textContent = `${loggedUser.name} (${loggedUser.email})`;
-          }
-        }, 1200);
-
-      } catch (error) {
-        statusText.style.color = '#f87171';
-        statusText.textContent = 'Database sync failed. Please try again.';
-      }
-    }
-
-    function handleLogout() {
-      localStorage.removeItem('diasect_user');
-      updateLoginUI();
-      document.getElementById('login-status').style.color = '#f87171';
-      document.getElementById('login-status').textContent = 'Logged out successfully.';
-      setTimeout(() => {
-        document.getElementById('login-status').textContent = '';
-        toggleLoginModal();
-      }, 1000);
-    }
-
-    function updateLoginUI() {
-      const loggedUser = JSON.parse(localStorage.getItem('diasect_user'));
-      const loginMenuText = document.getElementById('loginMenuText');
-      const nameFieldGroup = document.getElementById('nameFieldGroup');
-      const phoneFieldGroup = document.getElementById('phoneFieldGroup');
-      const loginBtn = document.getElementById('loginBtn');
-      const logoutBtn = document.getElementById('logoutBtn');
-      const subtitle = document.getElementById('loginModalSubtitle');
-
-      if (loggedUser) {
-        loginMenuText.innerHTML = `<i class="fa-solid fa-user-check" style="margin-right: 10px; color: #4ade80;"></i> Hello, ${loggedUser.name}`;
-        nameFieldGroup.style.display = 'none';
-        phoneFieldGroup.style.display = 'none';
-        document.getElementById('login-email').value = loggedUser.email;
-        loginBtn.style.display = 'none';
-        logoutBtn.style.display = 'block';
-        subtitle.textContent = `You are currently logged in as ${loggedUser.email}.`;
-      } else {
-        loginMenuText.innerHTML = `<i class="fa-solid fa-right-to-bracket" style="margin-right: 10px; color: #3b82f6;"></i> Login / Account`;
-        nameFieldGroup.style.display = 'block';
-        phoneFieldGroup.style.display = 'block';
-        document.getElementById('login-name').value = '';
-        document.getElementById('login-phone').value = '';
-        document.getElementById('login-email').value = '';
-        loginBtn.style.display = 'block';
-        logoutBtn.style.display = 'none';
-        subtitle.textContent = 'Enter your details to track your personalized sites & status.';
-      }
-    }
-
-    async function submitAppointment(event) {
-      event.preventDefault();
-      
-      const loggedUser = JSON.parse(localStorage.getItem('diasect_user'));
-      if (!loggedUser) {
-        alert("Pehle aapko Login karna padega tabhi aap appointment book kar sakte hain!");
-        toggleLoginModal();
-        return;
-      }
-
-      const btn = document.getElementById('submit-btn');
-      const statusText = document.getElementById('form-status');
-      
-      const formData = {
-        name: loggedUser.name,
-        email: loggedUser.email,
-        whatsapp: loggedUser.phone || 'N/A',
-        plan: document.getElementById('plan').value,
-        message: document.getElementById('message').value,
-        status: 'Pending',
-        timestamp: Date.now()
-      };
-
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-      statusText.style.color = 'var(--text-muted)';
-      statusText.textContent = 'Sending appointment details...';
-
-      try {
-        const response = await fetch(`${DB_URL}appointments.json`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-
-        if (response.ok) {
-          statusText.style.color = '#4ade80';
-          statusText.textContent = 'Appointment submitted successfully! Saved to your profile.';
-          document.getElementById('appointment-form').reset();
-        } else {
-          throw new Error('Failed to save');
-        }
-      } catch (error) {
-        statusText.style.color = '#f87171';
-        statusText.textContent = 'Error connecting to database. Please try again.';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Submit Appointment';
-      }
-    }
-
-    async function loadUserSites() {
-      const container = document.getElementById('sitesContainer');
-      const loggedUser = JSON.parse(localStorage.getItem('diasect_user'));
-
-      if (!loggedUser) {
-        container.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">Please login first.</p>';
-        return;
-      }
-
-      container.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">Loading your sites status...</p>';
-
-      try {
-        const res = await fetch(`${DB_URL}appointments.json`);
-        const data = await res.json();
-
-        if (!data) {
-          container.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">No appointments found for your account.</p>';
-          return;
-        }
-
-        container.innerHTML = '';
-        let foundAny = false;
-
-        Object.keys(data).reverse().forEach(id => {
-          const item = data[id];
-          
-          if (item.email && item.email.toLowerCase() === loggedUser.email.toLowerCase()) {
-            foundAny = true;
-            const status = item.status || 'Pending';
-
-            let badgeClass = 'status-pending';
-            if (status === 'Approved') badgeClass = 'status-approved';
-            if (status === 'Completed') badgeClass = 'status-completed';
-
-            const card = document.createElement('div');
-            card.className = 'site-card';
-
-            let linkHtml = '';
-            if (status === 'Completed' && item.siteUrl) {
-              linkHtml = `<a href="${item.siteUrl}" target="_blank" class="open-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Link</a>`;
-            }
-
-            card.innerHTML = `
-              <h3>${item.name || 'My Site'}</h3>
-              <div class="plan-tag"><i class="fa-solid fa-cube"></i> Plan: ${item.plan || 'Standard'}</div>
-              <div><span class="status-badge ${badgeClass}">${status}</span></div>
-              ${linkHtml}
-            `;
-            container.appendChild(card);
-          }
-        });
-
-        if (!foundAny) {
-          container.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">Aapne abhi tak koi appointment book nahi ki hai. Pehle appointment book karein!</p>';
-        }
-      } catch (e) {
-        container.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">Could not load your status.</p>';
-      }
-    }
-  </script>
 </body>
 </html>
